@@ -129,4 +129,5 @@ function _mapStateToProps(state, ownProps) {
     };
 }
 
-export default connect(_mapStateToProps, _mapDispatchToProps)(ChatButton);
+//export default connect(_mapStateToProps, _mapDispatchToProps)(ChatButton);
+export default connect(null, _mapDispatchToProps)(ChatButton);

@@ -172,6 +172,22 @@ export default {
 
     insecureRoomNameLabel: {
         backgroundColor: INSECURE_ROOM_NAME_LABEL_COLOR
+    },
+
+    chatIconBadgeContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start'
+    },
+
+    chatIconBadge: {
+        width: 20,
+        height: 20,
+        backgroundColor: '#FF0000'
+    },
+
+    badgeText: {
+        color: '#000000'
     }
 };
 

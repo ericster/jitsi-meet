@@ -1,8 +1,10 @@
 // @flow
 
 import React from 'react';
-import { NativeModules, SafeAreaView, StatusBar } from 'react-native';
+import { NativeModules, SafeAreaView, StatusBar, Text } from 'react-native';
+import IconBadge from 'react-native-icon-badge';
 import LinearGradient from 'react-native-linear-gradient';
+import Modal from 'react-native-modal';
 
 import { appNavigate } from '../../../app/actions';
 import { PIP_ENABLED, getFeatureFlag } from '../../../base/flags';
@@ -11,7 +13,8 @@ import { connect } from '../../../base/redux';
 import { ASPECT_RATIO_NARROW } from '../../../base/responsive-ui/constants';
 import { TestConnectionInfo } from '../../../base/testing';
 import { ConferenceNotification, isCalendarEnabled } from '../../../calendar-sync';
-import { Chat } from '../../../chat';
+import { Chat, ChatButton } from '../../../chat';
+import { getUnreadCount } from '../../../chat/functions';
 import { DisplayNameLabel } from '../../../display-name';
 import { SharedDocument } from '../../../etherpad';
 import {
@@ -26,6 +29,7 @@ import { KnockingParticipantList } from '../../../lobby';
 import { BackButtonRegistry } from '../../../mobile/back-button';
 import { Captions } from '../../../subtitles';
 import { isToolboxVisible, setToolboxVisible, Toolbox } from '../../../toolbox';
+import { buttonStyles, toggledButtonStyles } from '../../../toolbox/components/native/styles';
 import {
     AbstractConference,
     abstractMapStateToProps
@@ -90,7 +94,17 @@ type Props = AbstractProps & {
     /**
      * The redux {@code dispatch} function.
      */
-    dispatch: Function
+    dispatch: Function,
+
+    // True when chat is open
+    _isChatOpen: boolean,
+
+    // Dispathes a toggle chat action when the screen is touched to the side
+    // of the chat, which results in closing the chat
+    _onToggleChat: Function,
+
+    // Unread message count is displayed when the chat is closed
+    _unreadMessageCount: number,
 };
 
 /**
@@ -241,11 +255,14 @@ class Conference extends AbstractConference<Props, *> {
         const applyGradientStretching
             = _filmstripVisible && _aspectRatio === ASPECT_RATIO_NARROW && !_shouldDisplayTileView;
 
+        const unreadMessageCount = this.props._unreadMessageCount;
+
         if (_reducedUI) {
             return this._renderContentForReducedUi();
         }
 
         return (
+
             <>
                 {/*
                   * The LargeVideo is the lowermost stacking layer.
@@ -316,6 +333,32 @@ class Conference extends AbstractConference<Props, *> {
                     }
                 </SafeAreaView>
 
+                {/*
+                  *Unread messages display
+                    */}
+                {/* <SafeAreaView style = { styles.chatIconBadgeContainer }>
+                    <IconBadge
+                        BadgeElement = {
+                            <Text style = { styles.badgeText } >
+                                { unreadMessageCount }
+                            </Text>
+                        }
+                        Hidden = { unreadMessageCount === 0 }
+                        IconBadgeStyle = {
+                            styles.chatIconBadge
+                        }
+                        MainElement = {
+                            <ChatButton
+                                iconName = { this.props._isChatOpen
+                                    ? 'icon-chat toggled'
+                                    : 'icon-chat' }
+                                showLabel = { false }
+                                styles = { buttonStyles }
+                                toggledStyles =
+                                    { toggledButtonStyles } />
+                        } />
+                </SafeAreaView> */}
+
                 <SafeAreaView
                     pointerEvents = 'box-none'
                     style = { styles.navBarSafeView }>
@@ -329,6 +372,16 @@ class Conference extends AbstractConference<Props, *> {
                 { this._renderConferenceNotification() }
 
                 { this._renderConferenceModals() }
+
+                {/* <AddPeopleDialog key = 'addPeopleDialog' />
+                <Modal
+                    animationType = { 'slide' }
+                    onBackdropPress = { this.props._onToggleChat }
+                    transparent = { true }
+                    visible = { this.props._isChatOpen }>
+                    <Chat key = 'chat' />
+                </Modal>
+                <SharedDocument key = 'sharedDocument' /> */}
             </>
         );
     }
@@ -420,6 +473,8 @@ function _mapStateToProps(state) {
         leaving
     } = state['features/base/conference'];
     const { aspectRatio, reducedUI } = state['features/base/responsive-ui'];
+    const { isOpen } = state['features/chat'];
+    const unreadMessageCount = getUnreadCount(state);
 
     // XXX There is a window of time between the successful establishment of the
     // XMPP connection and the subsequent commencement of joining the MUC during
@@ -442,7 +497,10 @@ function _mapStateToProps(state) {
         _largeVideoParticipantId: state['features/large-video'].participantId,
         _pictureInPictureEnabled: getFeatureFlag(state, PIP_ENABLED),
         _reducedUI: reducedUI,
-        _toolboxVisible: isToolboxVisible(state)
+        _toolboxVisible: isToolboxVisible(state),
+        _isChatOpen: isOpen,
+        _unreadMessageCount: unreadMessageCount
+
     };
 }
 

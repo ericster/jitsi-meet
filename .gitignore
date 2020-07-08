@@ -84,3 +84,6 @@ android/app/google-services.json
 ios/app/dropbox.key
 ios/app/GoogleService-Info.plist
 
+# Eric
+.expo/
+android/sdk/src/main/gen/

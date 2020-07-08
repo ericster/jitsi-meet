@@ -54,6 +54,13 @@ const whiteToolbarButtonIcon = {
  * The Toolbox and toolbar related styles.
  */
 const styles = {
+    /**
+     * Styles for buttons in the toolbar.
+     */
+    buttonStyles: {
+        iconStyle: toolbarButtonIcon,
+        style: toolbarButton
+    },
 
     expandMenuContainer: {
         alignItems: 'center',
@@ -100,6 +107,18 @@ ColorSchemeRegistry.register('Toolbox', {
     buttonStyles: {
         iconStyle: toolbarButtonIcon,
         style: toolbarButton
+    },
+
+    /**
+     * Styles for toggled buttons in the toolbar.
+     */
+    toggledButtonStyles: {
+        iconStyle: whiteToolbarButtonIcon,
+        style: {
+            ...whiteToolbarButton,
+            borderColor: schemeColor('buttonToggledBorder'),
+            borderWidth: 1
+        }
     },
 
     buttonStylesBorderless: {
