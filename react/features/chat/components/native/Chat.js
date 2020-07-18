@@ -82,24 +82,24 @@ class Chat extends AbstractChat<Props> {
 
         return (
 
-            // <JitsiModal
-            //     headerProps = {{
-            //         headerLabelKey: 'chat.title'
-            //     }}
-            //     modalId = { CHAT_VIEW_MODAL_ID }>
-            //     <MessageContainer messages = { this.props._messages } />
-            //     <MessageRecipient />
-            //     <ChatInputBar onSend = { this.props._onSendMessage } />
-            // </JitsiModal>
+            <JitsiModal
+                headerProps = {{
+                    headerLabelKey: 'chat.title'
+                }}
+                modalId = { CHAT_VIEW_MODAL_ID }>
+                <MessageContainer messages = { this.props._messages } />
+                <MessageRecipient />
+                <ChatInputBar onSend = { this.props._onSendMessage } />
+            </JitsiModal>
 
             // <View >
             //     <Text>Hello {this.props._messages}!</Text>
             // </View>
 
-            <GiftedChat
-                messages = { messages.reverse() }
-                onSend = { this._onSend }
-                user = {{ _id: this.props._localParticipant.id }} />
+            // <GiftedChat
+            //     messages = { messages.reverse() }
+            //     onSend = { this._onSend }
+            //     user = {{ _id: this.props._localParticipant.id }} />
 
         );
     }

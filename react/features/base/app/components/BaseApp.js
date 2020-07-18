@@ -6,6 +6,7 @@ import React, { Component, Fragment } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { compose, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import Thunk from 'redux-thunk';
 
 import { i18next } from '../../i18n';
@@ -196,9 +197,14 @@ export default class BaseApp extends Component<*, State> {
                 && (devToolsExtension = window.devToolsExtension)) {
             middleware = compose(middleware, devToolsExtension());
         }
+        // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
         const store = createStore(
-            reducer, PersistenceRegistry.getPersistedState(), middleware);
+            reducer, PersistenceRegistry.getPersistedState(),
+            // composeEnhancers(
+                middleware
+            // )
+        );
 
         // StateListenerRegistry
         StateListenerRegistry.subscribe(store);
