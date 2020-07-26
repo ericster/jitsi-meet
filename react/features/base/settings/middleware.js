@@ -48,6 +48,7 @@ MiddlewareRegistry.register(store => next => action => {
  * @returns {void}
  */
 function _initializeCallIntegration({ getState }) {
+    console.log('_intiailizeCallInteraction settings');
     const { disableCallIntegration } = getState()['features/base/settings'];
 
     if (typeof disableCallIntegration === 'boolean') {

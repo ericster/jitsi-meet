@@ -21,6 +21,7 @@ const DEFAULT_STATE = {
 ReducerRegistry.register('features/chat', (state = DEFAULT_STATE, action) => {
     switch (action.type) {
     case ADD_MESSAGE: {
+        console.log('ADD_MESSAGE');
         const newMessage = {
             displayName: action.displayName,
             error: action.error,
@@ -52,6 +53,7 @@ ReducerRegistry.register('features/chat', (state = DEFAULT_STATE, action) => {
     }
 
     case CLEAR_MESSAGES:
+        console.log('CLEAR_MESSAGE');
         return {
             ...state,
             lastReadMessage: undefined,
@@ -59,12 +61,14 @@ ReducerRegistry.register('features/chat', (state = DEFAULT_STATE, action) => {
         };
 
     case SET_ACTIVE_MODAL_ID:
+        console.log('SET_ACTIVE_MODAL_ID');
         if (action.activeModalId === CHAT_VIEW_MODAL_ID) {
             return updateChatState(state);
         }
 
         break;
     case SET_PRIVATE_MESSAGE_RECIPIENT:
+        console.log('SET_PRIVATE_MESSAGE_RECIPIENT');
         return {
             ...state,
             isOpen: Boolean(action.participant) || state.isOpen,
@@ -72,6 +76,7 @@ ReducerRegistry.register('features/chat', (state = DEFAULT_STATE, action) => {
         };
 
     case TOGGLE_CHAT:
+        console.log('TOGGLE_CHAT');
         return updateChatState(state);
     }
 

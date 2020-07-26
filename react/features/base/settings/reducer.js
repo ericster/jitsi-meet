@@ -63,6 +63,7 @@ filterSubtree.micDeviceId = false;
 PersistenceRegistry.register(STORE_NAME, filterSubtree);
 
 ReducerRegistry.register(STORE_NAME, (state = DEFAULT_STATE, action) => {
+    console.log('settings ReducerRegistry register');
     switch (action.type) {
     case APP_WILL_MOUNT:
         return _initSettings(state);
@@ -118,6 +119,7 @@ function _getLegacyProfile() {
  * @returns {Object}
  */
 function _initSettings(featureState) {
+    console.log('_initSettings');
     let settings = featureState;
 
     // Old Settings.js values

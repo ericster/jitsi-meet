@@ -440,6 +440,7 @@ function _raiseHandUpdated({ dispatch, getState }, conference, participantId, ne
  * @returns {void}
  */
 function _registerSounds({ dispatch }) {
+    console.log('_registerSounds participants App_Will_Mount');
     dispatch(
         registerSound(PARTICIPANT_JOINED_SOUND_ID, PARTICIPANT_JOINED_FILE));
     dispatch(registerSound(PARTICIPANT_LEFT_SOUND_ID, PARTICIPANT_LEFT_FILE));

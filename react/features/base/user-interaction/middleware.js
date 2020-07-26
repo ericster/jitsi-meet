@@ -59,6 +59,7 @@ function _onUserInteractionReceived(dispatch, event) {
  * @returns {void}
  */
 function _startListeningForUserInteraction({ dispatch }) {
+    console.log('_startListeningForUserInteraction user-interaction');
     _stopListeningForUserInteraction();
 
     userInteractionListener = _onUserInteractionReceived.bind(null, dispatch);

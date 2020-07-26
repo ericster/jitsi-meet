@@ -58,6 +58,7 @@ MiddlewareRegistry.register(store => next => action => {
  * specified {@code action}.
  */
 function _appWillMount({ getState }, next, action) {
+    console.log('_appWillMount logging');
     const { config } = getState()['features/base/logging'];
 
     _setLogLevels(Logger, config);

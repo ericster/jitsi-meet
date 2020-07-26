@@ -22,6 +22,8 @@ MiddlewareRegistry.register(({ dispatch, getState }) => next => action => {
 
     switch (action.type) {
     case APP_WILL_MOUNT:
+        console.log('net-info App_WILL_MOUNT');
+
         if (NetworkInfoService.isSupported()) {
             const networkInfoService = new NetworkInfoService();
             const stop = () => {

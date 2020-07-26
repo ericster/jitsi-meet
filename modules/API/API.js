@@ -74,6 +74,7 @@ let videoAvailable = true;
  * @returns {void}
  */
 function initCommands() {
+    console.log('initCommands in API.js');
     commands = {
         'display-name': displayName => {
             sendAnalytics(createApiEvent('display.name.changed'));
@@ -453,6 +454,8 @@ class API {
          * @type {boolean}
          */
         this._enabled = true;
+
+        console.log('APP conference addListner attached');
 
         APP.conference.addListener(
             JitsiMeetConferenceEvents.DESKTOP_SHARING_ENABLED_CHANGED,

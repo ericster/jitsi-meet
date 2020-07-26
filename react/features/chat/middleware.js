@@ -54,19 +54,23 @@ MiddlewareRegistry.register(store => next => action => {
 
     switch (action.type) {
     case APP_WILL_MOUNT:
+        console.log('APP_WILL_MOUNT mw');
         dispatch(
                 registerSound(INCOMING_MSG_SOUND_ID, INCOMING_MSG_SOUND_FILE));
         break;
 
     case APP_WILL_UNMOUNT:
+        console.log('APP_WILL_UNMOUNT mw');
         dispatch(unregisterSound(INCOMING_MSG_SOUND_ID));
         break;
 
     case CONFERENCE_JOINED:
+        console.log('CONFERECE_JOINED mw');
         _addChatMsgListener(action.conference, store);
         break;
 
     case SEND_MESSAGE: {
+        console.log('SEND_MESSAGE mw');
         const state = store.getState();
         const { conference } = state['features/base/conference'];
 
@@ -101,6 +105,7 @@ MiddlewareRegistry.register(store => next => action => {
     }
 
     case SET_PRIVATE_MESSAGE_RECIPIENT: {
+        console.log('SET_PRIVATE_MESSAGE_RECIPIENT mw');
         Boolean(action.participant) && dispatch(setActiveModalId(CHAT_VIEW_MODAL_ID));
         _maybeFocusField();
         break;

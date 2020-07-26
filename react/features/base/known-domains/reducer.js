@@ -51,6 +51,7 @@ ReducerRegistry.register(STORE_NAME, (state = DEFAULT_STATE, action) => {
  * @returns {Object} The next redux state.
  */
 function _addKnownDomains(state, knownDomains) {
+    console.log('_addKnowDomains known-domains reducers');
     // In case persistence has deserialized a weird redux state:
     let nextState = Array.isArray(state) ? state : [];
 

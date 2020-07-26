@@ -14,7 +14,6 @@ MiddlewareRegistry.register(store => next => action => {
     switch (action.type) {
     case APP_WILL_MOUNT:
         _appWillMount(store);
-        break;
 
     case SET_ROOM:
         _setRoom(store);

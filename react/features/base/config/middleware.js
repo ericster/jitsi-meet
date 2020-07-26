@@ -43,6 +43,7 @@ MiddlewareRegistry.register(store => next => action => {
  * @returns {*} The return value of {@code next(action)}.
  */
 function _appWillMount(store, next, action) {
+    console.log('_appWillMount in config middleware');
     const result = next(action);
 
     // It's an opportune time to transfer the feature base/config's knowledge
