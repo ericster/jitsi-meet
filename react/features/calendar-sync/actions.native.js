@@ -2,7 +2,7 @@
 import { generateRoomWithoutSeparator } from 'js-utils/random';
 import type { Dispatch } from 'redux';
 
-import { getDefaultURL } from '../app/functions';
+import { getDefaultURL } from '../app-jitsi/functions';
 import { openDialog } from '../base/dialog';
 
 import { refreshCalendar } from './actions';

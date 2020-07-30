@@ -1,14 +1,16 @@
-// @flow
+// import 'react-native-gesture-handler';
 
 // Apply all necessary polyfills as early as possible to make sure anything imported henceforth
 // sees them.
 import './features/mobile/polyfills';
 
-import React, { PureComponent } from 'react';
+// import React, { PureComponent } from 'react';
 import { AppRegistry } from 'react-native';
 
-import { App } from './features/app/components';
-import { _initLogging } from './features/base/logging/functions';
+// import { JitsiApp } from './features/app-jitsi/components';
+// import { App } from './features/app-main/index.js';
+import  App  from './features/app-main/index.js';
+// import { _initLogging } from './features/base/logging/functions';
 import { IncomingCallApp } from './features/mobile/incoming-call';
 
 declare var __DEV__;
@@ -16,13 +18,13 @@ declare var __DEV__;
 /**
  * The type of the React {@code Component} props of {@link Root}.
  */
-type Props = {
-
-    /**
-     * The URL, if any, with which the app was launched.
-     */
-    url: Object | string
-};
+// type Props = {
+//
+//     /**
+//      * The URL, if any, with which the app was launched.
+//      */
+//     url: Object | string
+// };
 
 /**
  * React Native doesn't support specifying props to the main/root component (in
@@ -31,23 +33,24 @@ type Props = {
  *
  * @extends Component
  */
-class Root extends PureComponent<Props> {
-    /**
-     * Implements React's {@link Component#render()}.
-     *
-     * @inheritdoc
-     * @returns {ReactElement}
-     */
-    render() {
-        return (
-            <App
-                { ...this.props } />
-        );
-    }
-}
+// class JitsiRoot extends PureComponent<Props> {
+//     /**
+//      * Implements React's {@link Component#render()}.
+//      *
+//      * @inheritdoc
+//      * @returns {ReactElement}
+//      */
+//     render() {
+//         return (
+//             <JitsiApp
+//                 { ...this.props } />
+//         );
+//     }
+// }
 
 // Initialize logging.
-_initLogging();
+// _initLogging();
+console.log('index.native.js');
 
 // HORRIBLE HACK ALERT! React Native logs the initial props with `console.log`. Here we are quickly patching it
 // to avoid logging potentially sensitive information.
@@ -68,9 +71,11 @@ if (!__DEV__) {
     /* eslint-enable */
 }
 
+// Register the main Component of JitsiMeetView.
+AppRegistry.registerComponent('App', () => App);
 
-// Register the main/root Component of JitsiMeetView.
-AppRegistry.registerComponent('App', () => Root);
+// Register the jitsi main/root Component of JitsiMeetView.
+// AppRegistry.registerComponent('JitsiApp', () => JitsiRoot);
 
 // Register the main/root Component of IncomingCallView.
-AppRegistry.registerComponent('IncomingCallApp', () => IncomingCallApp);
+// AppRegistry.registerComponent('IncomingCallApp', () => IncomingCallApp);

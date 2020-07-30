@@ -1,5 +1,5 @@
 // @flow
-import { appNavigate } from '../app/actions';
+import { appNavigate } from '../app-jitsi/actions';
 import {
     CONFERENCE_JOINED,
     KICKED_OUT,

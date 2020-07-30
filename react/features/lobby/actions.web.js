@@ -2,7 +2,7 @@
 
 import { type Dispatch } from 'redux';
 
-import { appNavigate, maybeRedirectToWelcomePage } from '../app/actions';
+import { appNavigate, maybeRedirectToWelcomePage } from '../app-jitsi/actions';
 import { conferenceWillJoin, getCurrentConference, setPassword } from '../base/conference';
 import { hideDialog, openDialog } from '../base/dialog';
 import { getLocalParticipant } from '../base/participants';

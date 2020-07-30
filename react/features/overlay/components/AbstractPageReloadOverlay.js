@@ -8,7 +8,7 @@ import {
     createPageReloadScheduledEvent,
     sendAnalytics
 } from '../../analytics';
-import { reloadNow } from '../../app/actions';
+import { reloadNow } from '../../app-jitsi/actions';
 import {
     isFatalJitsiConferenceError,
     isFatalJitsiConnectionError

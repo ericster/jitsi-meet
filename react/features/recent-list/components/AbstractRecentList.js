@@ -8,7 +8,7 @@ import {
     createRecentSelectedEvent,
     sendAnalytics
 } from '../../analytics';
-import { appNavigate } from '../../app/actions';
+import { appNavigate } from '../../app-jitsi/actions';
 import {
     AbstractPage,
     Container,

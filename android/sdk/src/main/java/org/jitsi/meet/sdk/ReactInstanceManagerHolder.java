@@ -197,16 +197,21 @@ class ReactInstanceManagerHolder {
                 new com.reactnativecommunity.webview.RNCWebViewPackage(),
                 new com.rnimmersive.RNImmersivePackage(),
                 new com.zmxv.RNSound.RNSoundPackage(),
+                new com.swmansion.gesturehandler.react.RNGestureHandlerPackage(),
+                new com.codemotionapps.reactnativedarkmode.DarkModePackage(),
+                new org.devio.rn.splashscreen.SplashScreenReactPackage(),
+                new com.dylanvann.fastimage.FastImageViewPackage(),
+                new com.th3rdwave.safeareacontext.SafeAreaContextPackage(),
                 new ReactPackageAdapter() {
-                    @Override
-                    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-                        return ReactInstanceManagerHolder.createNativeModules(reactContext);
-                    }
-                    @Override
-                    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-                        return ReactInstanceManagerHolder.createViewManagers(reactContext);
-                    }
-                }));
+                        @Override
+                        public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+                            return ReactInstanceManagerHolder.createNativeModules(reactContext);
+                        }
+                        @Override
+                        public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+                            return ReactInstanceManagerHolder.createViewManagers(reactContext);
+                        }
+                    }));
 
         try {
             Class<?> googlePackageClass = Class.forName("co.apptailor.googlesignin.RNGoogleSigninPackage");
@@ -235,7 +240,7 @@ class ReactInstanceManagerHolder {
         DevInternalSettings devSettings
             = (DevInternalSettings)reactInstanceManager.getDevSupportManager().getDevSettings();
         if (devSettings != null) {
-            devSettings.setBundleDeltasEnabled(false);
+//            devSettings.setBundleDeltasEnabled(false);
         }
 
         // Register our uncaught exception handler.

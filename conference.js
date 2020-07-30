@@ -22,7 +22,7 @@ import {
     maybeRedirectToWelcomePage,
     redirectToStaticPage,
     reloadWithStoredParams
-} from './react/features/app/actions';
+} from './react/features/app-jitsi/actions';
 import {
     AVATAR_ID_COMMAND,
     AVATAR_URL_COMMAND,

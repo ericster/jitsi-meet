@@ -2,7 +2,7 @@
 
 import { Share } from 'react-native';
 
-import { getName } from '../app/functions';
+import { getName } from '../app-jitsi/functions';
 import { MiddlewareRegistry } from '../base/redux';
 import { getShareInfoText } from '../invite';
 

@@ -6,7 +6,7 @@ import IconBadge from 'react-native-icon-badge';
 import LinearGradient from 'react-native-linear-gradient';
 import Modal from 'react-native-modal';
 
-import { appNavigate } from '../../../app/actions';
+import { appNavigate } from '../../../app-jitsi/actions';
 import { PIP_ENABLED, getFeatureFlag } from '../../../base/flags';
 import { Container, LoadingIndicator, TintedView } from '../../../base/react';
 import { connect } from '../../../base/redux';

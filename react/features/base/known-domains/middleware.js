@@ -1,6 +1,6 @@
 // @flow
 
-import { getDefaultURL } from '../../app/functions';
+import { getDefaultURL } from '../../app-jitsi/functions';
 import { APP_WILL_MOUNT } from '../app';
 import { SET_ROOM } from '../conference';
 import { MiddlewareRegistry } from '../redux';

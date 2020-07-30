@@ -7,7 +7,7 @@ import {
     createCalendarSelectedEvent,
     sendAnalytics
 } from '../../analytics';
-import { appNavigate } from '../../app/actions';
+import { appNavigate } from '../../app-jitsi/actions';
 import { getLocalizedDateFormatter, translate } from '../../base/i18n';
 import { NavigateSectionList } from '../../base/react';
 import { connect } from '../../base/redux';
