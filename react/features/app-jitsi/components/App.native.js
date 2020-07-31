@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import React, { Component } from 'react';
 
 import { setColorScheme } from '../../base/color-scheme';
 import { DialogContainer } from '../../base/dialog';
@@ -23,6 +23,7 @@ declare var __DEV__;
  * The type of React {@code Component} props of {@link JitsiApp}.
  */
 type Props = AbstractAppProps & {
+    // type Props = {
 
     /**
      * An object of colors that override the default colors of the app/sdk.
@@ -50,6 +51,24 @@ type Props = AbstractAppProps & {
  *
  * @extends AbstractApp
  */
+import { Text, View } from 'react-native';
+
+// export class JitsiApp extends Component<Props>{
+//     render() {
+//         return (
+//             <View
+//                 style={{
+//                     flex: 1,
+//                     backgroundColor: 'white',
+//                     justifyContent: 'center',
+//                     alignItems: 'center'
+//                 }}>
+//                 <Text>Hellooooo, Jitsi world!</Text>
+//             </View>
+//         );
+//     }
+// }
+
 export class JitsiApp extends AbstractApp {
     _init: Promise<*>;
 
@@ -60,6 +79,7 @@ export class JitsiApp extends AbstractApp {
      * which the new instance is to be initialized.
      */
     constructor(props: Props) {
+        console.log('constructor: JitsiApp');
         super(props);
 
         // In the Release configuration, React Native will (intentionally) throw
@@ -80,6 +100,7 @@ export class JitsiApp extends AbstractApp {
      * @returns {void}
      */
     componentDidMount() {
+        console.log('component did mount:JitsiApp');
         super.componentDidMount();
 
         this._init.then(() => {

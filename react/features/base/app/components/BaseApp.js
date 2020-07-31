@@ -169,7 +169,7 @@ export default class BaseApp extends Component<*, State> {
      * @protected
      */
     _createMainElement(component, props) {
-        console.log('component created');
+        console.log('component created: BaseApp');
         console.log(component);
         return component ? React.createElement(component, props || {}) : null;
     }

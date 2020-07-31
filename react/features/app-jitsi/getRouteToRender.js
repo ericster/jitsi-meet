@@ -38,9 +38,11 @@ export type Route = {
  * @returns {Promise<Route>}
  */
 export function _getRouteToRender(stateful: Function | Object): Promise<Route> {
+    console.log('_getRrouteToRender');
     const state = toState(stateful);
 
     if (navigator.product === 'ReactNative') {
+        console.log('_getRrouteToRender: mobile');
         return _getMobileRoute(state);
     }
 
@@ -57,11 +59,15 @@ function _getMobileRoute(state): Promise<Route> {
     const route = _getEmptyRoute();
 
     if (isRoomValid(state['features/base/conference'].room)) {
+        console.log('_getMobileRoute: Conference');
         route.component = Conference;
     } else if (isWelcomePageAppEnabled(state)) {
+        console.log('_getMobileRoute: WelcomePage');
         route.component = WelcomePage;
     } else {
-        route.component = BlankPage;
+        console.log('_getMobileRoute: BlankPage');
+        // route.component = BlankPage;
+        route.component = WelcomePage;
     }
 
     return Promise.resolve(route);

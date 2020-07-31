@@ -35,6 +35,10 @@ import ContactUs from '@screens/ContactUs';
 const MainStack = createStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
+import {JitsiApp} from '../../app-jitsi/components/index';
+// import JitsiApp from '../../app-jitsi/components/index';
+import Hello from '../../app-jitsi/components/hello';
+
 export default function Main() {
     return (
         <MainStack.Navigator
@@ -150,10 +154,14 @@ function BottomTabNavigator() {
                         solid = { true } />)
                 }} />
             <BottomTab.Screen
-                name = 'Messenger'
-                component = { Messenger }
+                // name = 'Messenger'
+                // component = { Messenger }
+                name = 'VideoChat'
+                // component = { Hello }
+                component = { JitsiApp }
                 options = {{
-                    title: t('messenger'),
+                    // title: t('messenger'),
+                    title: t('VideoChat'),
                     tabBarIcon: ({ color }) => (<Icon
                         color = { color }
                         name = 'envelope'

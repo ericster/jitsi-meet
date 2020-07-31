@@ -39,6 +39,7 @@ export class AbstractApp extends BaseApp<Props, *> {
      * @inheritdoc
      */
     componentDidMount() {
+        console.log('component did mount: AbstractApp');
         super.componentDidMount();
 
         this._init.then(() => {
@@ -110,6 +111,7 @@ export class AbstractApp extends BaseApp<Props, *> {
      * @returns {void}
      */
     _openURL(url) {
+        console.log('AbstractApp: _openURL ${url}');
         this.state.store.dispatch(appNavigate(toURLString(url)));
     }
 }

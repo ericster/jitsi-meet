@@ -19,7 +19,7 @@ import { useSelector } from 'react-redux';
 
 /* Main Stack Navigator */
 import Main from './main';
-import Hello from '../hello';
+import Hello from '../../app-jitsi/components/hello';
 
 
 /* Modal Screen only affect iOS */

@@ -16,15 +16,6 @@ export default function App() {
                  loading = { null }
                  persistor = { persistor }>
                  <Navigator />
-        {/*             <View*/}
-        {/*                 style={{*/}
-        {/*                     flex: 1,*/}
-        {/*                     backgroundColor: 'white',*/}
-        {/*                     justifyContent: 'center',*/}
-        {/*                     alignItems: 'center'*/}
-        {/*                 }}>*/}
-        {/*                 <Text>Hello, Nav2 !</Text>*/}
-        {/*             </View>*/}
               </PersistGate>
          </Provider>
     );
