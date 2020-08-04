@@ -9,6 +9,8 @@ target 'jitsi-meet' do
   pod 'Fabric', '~> 1.10.2'
   pod 'Firebase/Core', '~> 6.16.0'
   pod 'Firebase/DynamicLinks', '~> 6.16.0'
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
 end
 
 target 'JitsiMeet' do
@@ -41,6 +43,7 @@ target 'JitsiMeet' do
   pod 'React-RCTText', :path => '../node_modules/react-native/Libraries/Text'
   pod 'React-RCTVibration', :path => '../node_modules/react-native/Libraries/Vibration'
 
+  pod 'React-callinvoker', :path => '../node_modules/react-native/ReactCommon/callinvoker'
   pod 'React-cxxreact', :path => '../node_modules/react-native/ReactCommon/cxxreact'
   pod 'React-jsi', :path => '../node_modules/react-native/ReactCommon/jsi'
   pod 'React-jsiexecutor', :path => '../node_modules/react-native/ReactCommon/jsiexecutor'
@@ -54,19 +57,19 @@ target 'JitsiMeet' do
   # React Native plugins
   #
 
-  # pod 'react-native-background-timer', :path => '../node_modules/react-native-background-timer'
-  # pod 'react-native-calendar-events', :path => '../node_modules/react-native-calendar-events'
-  # pod 'react-native-keep-awake', :path => '../node_modules/react-native-keep-awake'
-  # pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
-  # pod 'react-native-webview', :path => '../node_modules/react-native-webview'
-  # pod 'react-native-webrtc', :path => '../node_modules/react-native-webrtc'
-  # pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
-  # pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
-  # pod 'RNGoogleSignin', :path => '../node_modules/@react-native-community/google-signin'
-  # pod 'RNSound', :path => '../node_modules/react-native-sound'
-  # pod 'RNSVG', :path => '../node_modules/react-native-svg'
-  # pod 'RNWatch', :path => '../node_modules/react-native-watch-connectivity'
-  # pod 'RNDefaultPreference', :path => '../node_modules/react-native-default-preference'
+  pod 'react-native-background-timer', :path => '../node_modules/react-native-background-timer'
+  pod 'react-native-calendar-events', :path => '../node_modules/react-native-calendar-events'
+  pod 'react-native-keep-awake', :path => '../node_modules/react-native-keep-awake'
+  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+  pod 'react-native-webrtc', :path => '../node_modules/react-native-webrtc'
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+  pod 'RNGoogleSignin', :path => '../node_modules/@react-native-community/google-signin'
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+  pod 'RNWatch', :path => '../node_modules/react-native-watch-connectivity'
+  pod 'RNDefaultPreference', :path => '../node_modules/react-native-default-preference'
   pod 'RNCMaskedView', :path => '../node_modules/@react-native-community/masked-view'
   pod 'RNFastImage', :path => '../node_modules/react-native-fast-image'
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
@@ -79,6 +82,8 @@ target 'JitsiMeet' do
   pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
   pod 'react-native-viewpager', :path => '../node_modules/@react-native-community/viewpager'
+  pod 'rn-range-slider', :path => '../node_modules/rn-range-slider'
+  pod 'toolbar-android', :path => '../node_modules/@react-native-community/toolbar-android'
 
 
   # Native pod dependencies
